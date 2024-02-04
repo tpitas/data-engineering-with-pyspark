@@ -1,0 +1,12 @@
+Instructions to insert tables into the database:
+6 tables have been created and 6 files in CSV and are under the tables folder
+Run the code below:
+psql -U postgres
+\COPY categories FROM 'categories.csv' WITH (FORMAT CSV, DELIMITER ',');
+\COPY customers FROM 'customers.csv' WITH (FORMAT CSV, DELIMITER ',');
+\COPY departments FROM 'departments.csv' WITH (FORMAT CSV, DELIMITER ',');
+\COPY order_items FROM 'order_items.csv' WITH (FORMAT CSV, DELIMITER ',');
+\COPY orders FROM 'orders.csv' WITH (FORMAT CSV, DELIMITER ',');
+\COPY products FROM 'products.csv' WITH (FORMAT CSV, DELIMITER ',');
+
+
