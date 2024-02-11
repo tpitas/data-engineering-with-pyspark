@@ -35,5 +35,18 @@ spark.sql(
     """
 ).show()
 
+#  Use SQL with a subquery
+spark.sql(
+    """
+        select employee_id, first_name, last_name, salary 
+        from employees
+        where salary < 
+        (
+        select salary from employees
+        where employee_id = 120 
+        )
+    """
+).show()
+
 # Stop the SparkSession
 spark.stop()
