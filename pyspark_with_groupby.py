@@ -6,6 +6,13 @@ from pyspark.sql import SparkSession
 conf = SparkConf()
 conf.set('spark.jars','/home/ansible/Downloads/postgresql-42.4.2.jar') # driver downloaded from https://jdbc.postgresql.org/download/
 
+# Create a SparkSession 
+spark = SparkSession.builder \
+        .config(conf=conf) \
+        .master("local") \
+        .appName("Postgres Connection Test") \
+        .getOrCreate()
+        
 # Create a DataFrame
 df = spark.read.format("jdbc") \
     .options( url="jdbc:postgresql://localhost:5432/emptdb", # database name 
